@@ -5,12 +5,20 @@ const youtubeRouter = require('./app/routers/youtube.router');
 
 const app = express();
 
+const allowedOrigins = ['http://localhost:4200', 'https://agenda-bf245.web.app'];
+
 const corsOptions = {
-  origin: 'http://localhost:4200'
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 };
+
 const headers = {
-  'Access-Control-Allow-Origin': 'http://localhost:4200',
-  'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'x-access-token, Origin, Content-Type, Accept'
 };
 
