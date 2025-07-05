@@ -3,5 +3,6 @@
     "dockerfile": "../Dockerfile",     // ← chemin relatif vers le Dockerfile à la racine
     "context": ".."                    // ← contexte de build Docker (la racine du projet)
   },
-  "postCreateCommand": "npm install"
+  "postCreateCommand": "npm install",
+  "postStartCommand": "npm run start"
 }
