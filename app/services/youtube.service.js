@@ -17,6 +17,8 @@ exports.convert = async (videoId) => {
     output: this.outputPath,
     ffmpegLocation: '/usr/bin/ffmpeg', // facultatif
     cookies: path.resolve(__dirname, 'cookies.txt'), // 🔑 fichier cookies
+    format: "best",
+    "js-runtime": "node"
   });
 }
 
